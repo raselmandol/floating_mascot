@@ -119,7 +119,7 @@ Pull requests are welcome. For major changes, open an issue first to discuss wha
 - [ ]  Minimize to system tray  
 - [ ]  Include more default animations  
 - [ ]  Add proper 3D model support  
-- [ ]  Loading from URL  
+- [ ]  Load from URL  
 - [ ]  Add autostart on system startup  
 - [ ]  Implement proper drag functionality  
 - [ ]  Create animation builder/editor  
