@@ -107,5 +107,5 @@ class TwinklingStarsWidget(QWidget):
             painter.setBrush(color)
             painter.drawEllipse(star['pos'], 2, 2)
     # Add more here acc to your designs, whatever you need
-    # note: to make these basic animations, I took help from AI,
-    # My main target was gif as a floating mascot
+    # Note: These basic animations were made with help from AI.
+    # My goal was to use a GIF as a floating mascot.
