@@ -42,7 +42,7 @@ class BouncingBallsWidget(QWidget):
 class SnakeWidget(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.snake = [QPointF(200, 200)]
+        self.snake = [QPointF(600, 400)]
         self.length = 10
         self.angle = 0
 
