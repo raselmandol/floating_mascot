@@ -30,6 +30,7 @@ class SettingsWindow(QMainWindow):
         self.layout.addWidget(self.default_anim_label)
 
         self.default_anim_combo = QComboBox()
+        # Add your list items here
         self.default_anim_combo.addItems(["None", "balls", "snake", "stars"])
         self.layout.addWidget(self.default_anim_combo)
 
