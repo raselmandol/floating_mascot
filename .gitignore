@@ -1,0 +1,12 @@
+# Ignore build artifacts
+build/
+dist/
+__pycache__/
+
+# Ignore spec files
+mascot_launcher.spec
+mascot_launcher_normal.spec
+mascot_launcher_panda.spec
+
+# Bytecode files
+*.pyc
