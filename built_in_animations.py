@@ -43,7 +43,7 @@ class SnakeWidget(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.snake = [QPointF(600, 400)]
-        self.length = 10
+        self.length = 45
         self.angle = 0
 
         self.timer = QTimer(self)
@@ -51,11 +51,11 @@ class SnakeWidget(QWidget):
         self.timer.start(50)
 
     def update_snake(self):
-        self.angle += 0.1
+        self.angle += 0.05
         head = self.snake[0]
         new_head = QPointF(
-            head.x() + math.cos(self.angle) * 5,
-            head.y() + math.sin(self.angle * 2) * 5
+            head.x() + math.cos(self.angle) * 15,
+            head.y() + math.sin(self.angle * 2) * 15
         )
         self.snake.insert(0, new_head)
         if len(self.snake) > self.length:
@@ -67,7 +67,7 @@ class SnakeWidget(QWidget):
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
         painter.fillRect(self.rect(), Qt.GlobalColor.transparent)
         for i, point in enumerate(self.snake):
-            color = QColor(255 - i*20, 100 + i*10, 255)
+            color = QColor(255 - i*10, 100 + i*10, 255)
             painter.setBrush(color)
             radius = max(5, 15 - i)
             painter.drawEllipse(point, radius, radius)
