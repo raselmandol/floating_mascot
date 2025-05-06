@@ -2,6 +2,7 @@
 build/
 dist/
 __pycache__/
+mascot/
 
 # Ignore spec files
 mascot_launcher.spec
