@@ -121,6 +121,6 @@ Pull requests are welcome. For major changes, open an issue first to discuss wha
 - [ ]  Add proper 3D model support  
 - [ ]  Load from URL  
 - [ ]  Add autostart on system startup  
-- [ ]  Implement proper drag functionality  
+- [x]  Implement proper drag functionality  
 - [ ]  Create animation builder/editor  
-- [ ]  Draggable Label
+- [x]  Draggable Label
