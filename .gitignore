@@ -8,6 +8,7 @@ mascot/
 mascot_launcher.spec
 mascot_launcher_normal.spec
 mascot_launcher_panda.spec
+mascot-launcher.spec
 
 # Bytecode files
 *.pyc
