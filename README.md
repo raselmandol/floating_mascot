@@ -124,3 +124,6 @@ Pull requests are welcome. For major changes, open an issue first to discuss wha
 - [x]  Implement proper drag functionality  
 - [ ]  Create animation builder/editor  
 - [x]  Draggable Label
+- [ ]  Keyboard Shortcuts
+- [ ]  Background Music 
+- [ ]  Multiple GIFs option
