@@ -99,7 +99,7 @@ Convert your PNG icon to ICO.
 
 ### Run:
    ```bash
-   pyinstaller --onefile --windowed --icon=icon.ico main.py
+   pyinstaller --name mascot-launcher --onefile --windowed --icon=icon.ico main.py
    ```
 
 ---
@@ -124,6 +124,6 @@ Pull requests are welcome. For major changes, open an issue first to discuss wha
 - [x]  Implement proper drag functionality  
 - [ ]  Create animation builder/editor  
 - [x]  Draggable Label
-- [ ]  Keyboard Shortcuts
+- [x]  Keyboard Shortcuts
 - [ ]  Background Music 
 - [ ]  Multiple GIFs option
