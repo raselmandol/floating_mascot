@@ -6,3 +6,4 @@ PyQt6_sip==13.10.0
 PyOpenGL==3.1.9
 PyOpenGL-accelerate==3.1.9
 typing_extensions==4.13.2
+keyboard
