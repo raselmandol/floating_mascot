@@ -41,6 +41,23 @@ class FloatingWindow(QMainWindow):
         self._drag_position = QPoint()
         self.initUI()
 
+        self._visible = True  # Track visibility
+        self.start_shortcut_listener()  # Start listener in a thread
+
+
+    def start_shortcut_listener(self):
+        def listen():
+            keyboard.add_hotkey('ctrl+alt+m', self.toggle_visibility)
+            keyboard.wait()  # Blocks forever
+        threading.Thread(target=listen, daemon=True).start()
+
+    def toggle_visibility(self):
+        if self._visible:
+            self.hide()
+        else:
+            self.show()
+        self._visible = not self._visible
+
     def initUI(self):
         self.setWindowFlags(
             Qt.WindowType.FramelessWindowHint |
