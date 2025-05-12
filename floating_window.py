@@ -1,4 +1,3 @@
-# floating_window.py
 from built_in_animations import BouncingBallsWidget, SnakeWidget, TwinklingStarsWidget
 from PyQt6.QtWidgets import QMainWindow, QLabel, QApplication
 from PyQt6.QtOpenGLWidgets import QOpenGLWidget
