@@ -110,6 +110,38 @@ Pull requests are welcome. For major changes, open an issue first to discuss wha
 
 ---
 
+## Keyboard Shortcut
+
+You can now **toggle the floating mascot** (hide/show) using the keyboard shortcut:
+
+```
+Ctrl + Alt + M
+```
+
+This makes it easy to hide the window when you're working and bring it back anytime.
+
+### Requirements
+
+Make sure you have the `keyboard` module installed:
+
+```bash
+pip install -r requirements.txt
+```
+(already added -> requirements.txt)
+
+> Note: The `keyboard` module may require administrator/root permissions on some systems.
+
+### Change the Shortcut
+
+To use a different shortcut, open `floating_window.py` and find this line:
+
+```python
+keyboard.add_hotkey('ctrl+alt+m', self.toggle_visibility)
+```
+
+Change `'ctrl+alt+m'` to any other key combination, like `'ctrl+shift+z'` or `'f12'`.
+
+---
 
 ## To-Do
 
