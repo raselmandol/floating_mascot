@@ -3,6 +3,8 @@ from PyQt6.QtWidgets import QMainWindow, QLabel, QApplication
 from PyQt6.QtOpenGLWidgets import QOpenGLWidget
 from PyQt6.QtCore import Qt, QTimer, QPoint, QPointF
 from PyQt6.QtGui import QMovie, QPixmap
+import threading
+import keyboard  # Keyboard shortcut (process)
 import trimesh
 import numpy as np
 import pyqtgraph.opengl as gl
