@@ -157,5 +157,5 @@ Change `'ctrl+alt+m'` to any other key combination, like `'ctrl+shift+z'` or `'f
 - [ ]  Create animation builder/editor  
 - [x]  Draggable Label
 - [x]  Keyboard Shortcuts
-- [ ]  Background Music 
+- [x]  Background Music 
 - [ ]  Multiple GIFs option
