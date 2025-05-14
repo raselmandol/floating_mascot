@@ -104,12 +104,6 @@ Convert your PNG icon to ICO.
 
 ---
 
-## Contributing
-
-Pull requests are welcome. For major changes, open an issue first to discuss what you’d like to change.
-
----
-
 ## Keyboard Shortcut
 
 You can now **toggle the floating mascot** (hide/show) using the keyboard shortcut:
@@ -140,6 +134,12 @@ keyboard.add_hotkey('ctrl+alt+m', self.toggle_visibility)
 ```
 
 Change `'ctrl+alt+m'` to any other key combination, like `'ctrl+shift+z'` or `'f12'`.
+
+---
+
+## Contributing
+
+Pull requests are welcome. For major changes, open an issue first to discuss what you’d like to change.
 
 ---
 
