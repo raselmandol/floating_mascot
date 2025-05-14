@@ -106,13 +106,19 @@ Convert your PNG icon to ICO.
 
 ## Keyboard Shortcut
 
-You can now **toggle the floating mascot** (hide/show) using the keyboard shortcut:
+You can **toggle the floating mascot** (hide/show), and **toggle background music** (pause/unpause) using the keyboard shortcut:
 
+Floating mascot:
 ```
 Ctrl + Alt + M
 ```
+Background music:
+```
+Ctrl + Alt + S
+```
 
-This makes it easy to hide the window when you're working and bring it back anytime.
+
+This makes it easy to hide the window when you're working, bring it back anytime, and pause/unpause the audio anytime.
 
 ### Requirements
 
