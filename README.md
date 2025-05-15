@@ -138,6 +138,9 @@ To use a different shortcut, open `floating_window.py` and find this line:
 ```python
 keyboard.add_hotkey('ctrl+alt+m', self.toggle_visibility)
 ```
+```
+keyboard.add_hotkey('ctrl+alt+s', self._toggle_music)
+```
 
 Change `'ctrl+alt+m'` to any other key combination, like `'ctrl+shift+z'` or `'f12'`.
 
