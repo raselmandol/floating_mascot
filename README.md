@@ -142,7 +142,7 @@ Change `'ctrl+alt+m'` to any other key combination, like `'ctrl+shift+z'` or `'f
 
 To use a different shortcut (music), open `settings_window.py` and find this line:
 
-```
+```python
 keyboard.add_hotkey('ctrl+alt+s', self._toggle_music)
 ```
 
