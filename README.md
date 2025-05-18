@@ -158,7 +158,7 @@ Pull requests are welcome. For major changes, open an issue first to discuss wha
 
 ## To-Do
 
-- [ ]  Enhance error handling  
+- [x]  Enhance error handling  
 - [ ]  Improve documentation with more examples  
 - [ ]  Add more configuration options  
 - [ ]  Minimize to system tray  
