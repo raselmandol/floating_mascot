@@ -1,4 +1,3 @@
-# settings_window.py
 import sys
 import threading
 import keyboard
@@ -15,12 +14,12 @@ class SettingsWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         pygame.mixer.init()
-        self.floating_window = None
+        self.floating_windows = []  # support multiple
         self.music_file = None
         self.music_on = False
 
         self.setWindowTitle("Mascot Settings")
-        self.setGeometry(500, 350, 400, 200)
+        self.setGeometry(500, 350, 400, 300)
 
         self.layout = QVBoxLayout()
 
@@ -51,16 +50,16 @@ class SettingsWindow(QMainWindow):
         self.music_button.clicked.connect(self.select_music)
         self.layout.addWidget(self.music_button)
 
-        self.stop_button = QPushButton("Stop Mascot / Music")
+        self.stop_button = QPushButton("Stop Mascot(s) / Music")
         self.stop_button.clicked.connect(self.stop_all)
         self.layout.addWidget(self.stop_button)
 
-        # Wrap layout (container --> edit?)
+        # Wrap layout
         container = QWidget()
         container.setLayout(self.layout)
         self.setCentralWidget(container)
 
-        # System tray (in list/work/to-do)
+        # System tray
         self.tray_icon = QSystemTrayIcon(QIcon("icon.png"), self)
         tray_menu = QMenu()
         show_action = QAction("Show Settings", self)
@@ -72,7 +71,7 @@ class SettingsWindow(QMainWindow):
         quit_action.triggered.connect(self.quit_app)
         self.tray_icon.show()
 
-        # Global shortcuts listener (must)
+        # Global shortcuts listener
         threading.Thread(target=self._listen_shortcuts, daemon=True).start()
 
     def load_image(self):
@@ -80,19 +79,19 @@ class SettingsWindow(QMainWindow):
             self, "Select GIF or Image", "", "Images (*.gif *.png *.jpg *.jpeg)"
         )
         if path:
-            self._start_window("image", file_path=path)
+            self._add_window("image", file_path=path)
 
-    def load_3d(self): # Will remove and rewrite this whole thing (next update)
+    def load_3d(self):
         path, _ = QFileDialog.getOpenFileName(
             self, "Select 3D Model", "", "3D Files (*.glb *.obj *.stl)"
         )
         if path:
-            self._start_window("3d", file_path=path)
+            self._add_window("3d", file_path=path)
 
     def start_default_animation(self):
         anim = self.default_anim_combo.currentText()
         if anim != "None":
-            self._start_window("built_in", built_in_animation=anim)
+            self._add_window("built_in", built_in_animation=anim)
 
     def select_music(self):
         path, _ = QFileDialog.getOpenFileName(
@@ -109,32 +108,34 @@ class SettingsWindow(QMainWindow):
                 self.music_on = False
 
     def stop_all(self):
-        # Stop mascot window
-        if self.floating_window:
-            self.floating_window.close()
-            self.floating_window = None
+        # Close all mascot windows
+        for w in self.floating_windows:
+            w.close()
+        self.floating_windows.clear()
         # Pause music
         if self.music_on:
             pygame.mixer.music.pause()
             self.music_on = False
 
-    def _start_window(self, animation_type, file_path=None, built_in_animation=None):
-        if self.floating_window:
-            self.floating_window.close()
-        self.floating_window = FloatingWindow(
-            animation_type, file_path, built_in_animation
-        )
-        self.floating_window.show()
+    def _add_window(self, animation_type, file_path=None, built_in_animation=None):
+        win = FloatingWindow(animation_type, file_path, built_in_animation)
+        self.floating_windows.append(win)
+        win.show()
 
     def _listen_shortcuts(self):
-        # Toggle mascot visibility
-        keyboard.add_hotkey('ctrl+alt+m', lambda: (
-            self.floating_window.hide() if self.floating_window and self.floating_window.isVisible()
-            else (self.floating_window.show() if self.floating_window else None)
-        ))
+        # Toggle all mascot windows
+        keyboard.add_hotkey('ctrl+alt+m', self._toggle_windows)
         # Toggle music pause/unpause
         keyboard.add_hotkey('ctrl+alt+s', self._toggle_music)
         keyboard.wait()
+
+    def _toggle_windows(self):
+        if any(w.isVisible() for w in self.floating_windows):
+            for w in self.floating_windows:
+                w.hide()
+        else:
+            for w in self.floating_windows:
+                w.show()
 
     def _toggle_music(self):
         if not self.music_file:
