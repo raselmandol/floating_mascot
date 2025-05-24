@@ -172,4 +172,4 @@ Pull requests are welcome. For major changes, open an issue first to discuss wha
 - [x]  Draggable Label
 - [x]  Keyboard Shortcuts
 - [x]  Background Music 
-- [ ]  Multiple GIFs option
+- [x]  Multiple GIFs option
