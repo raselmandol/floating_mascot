@@ -28,7 +28,7 @@ class SettingsWindow(QMainWindow):
         self.load_button.clicked.connect(self.load_image)
         self.layout.addWidget(self.load_button)
 
-        # 3D model loader
+        # 3D model loader (will remove soon)
         self.load_3d_button = QPushButton("Load 3D Model (.glb/.obj)")
         self.load_3d_button.clicked.connect(self.load_3d)
         self.layout.addWidget(self.load_3d_button)
@@ -81,7 +81,7 @@ class SettingsWindow(QMainWindow):
         if path:
             self._add_window("image", file_path=path)
 
-    def load_3d(self):
+    def load_3d(self): # Not working (will fix ASAP)
         path, _ = QFileDialog.getOpenFileName(
             self, "Select 3D Model", "", "3D Files (*.glb *.obj *.stl)"
         )
