@@ -89,11 +89,13 @@ class FloatingWindow(QMainWindow):
         self.label.resize(200, 200)
         self.label.move(1180, 560)  # Starting position
 
-    def display_3d_model(self):
+   # Will fix this (next task)
+    def display_3d_model(self): 
         self.view = gl.GLViewWidget(self)
         self.setCentralWidget(self.view)
         self.view.setCameraPosition(distance=10)
         self.view.setBackgroundColor('w')
+        # Color is fixed
 
         # Will update full func ASAP
         scene_or_mesh = trimesh.load(self.file_path)
@@ -101,7 +103,7 @@ class FloatingWindow(QMainWindow):
         if isinstance(scene_or_mesh, trimesh.Scene):
             meshes = scene_or_mesh.geometry.values()
         else:
-            meshes = [scene_or_mesh]
+            meshes = [scene_or_mesh] 
 
         for mesh in meshes:
             vertices = np.array(mesh.vertices)
