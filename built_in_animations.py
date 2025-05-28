@@ -51,7 +51,7 @@ class SnakeWidget(QWidget):
         self.timer.start(50)
 
     def update_snake(self):
-        self.angle += 0.05
+        self.angle += 0.05 # Adjust angle
         head = self.snake[0]
         new_head = QPointF(
             head.x() + math.cos(self.angle) * 15,
