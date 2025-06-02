@@ -158,6 +158,7 @@ Pull requests are welcome. For major changes, open an issue first to discuss wha
 
 ## To-Do
 
+- [ ]  Python Package?
 - [ ]  Enhance error handling 
 - [ ]  Error reporting option 
 - [ ]  Improve documentation with more examples  
