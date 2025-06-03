@@ -163,7 +163,6 @@ Pull requests are welcome. For major changes, open an issue first to discuss wha
 - [ ]  Error reporting option 
 - [ ]  Improve documentation with more examples  
 - [ ]  Add more configuration options
-- [ ]  Click & Close  
 - [ ]  Minimize to system tray  
 - [ ]  Include more default animations  
 - [ ]  Add proper 3D model support  
