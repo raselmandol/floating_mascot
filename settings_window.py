@@ -7,7 +7,7 @@ from PyQt6.QtWidgets import (
     QFileDialog, QVBoxLayout, QWidget, QComboBox, QSystemTrayIcon, QMenu
 )
 from PyQt6.QtGui import QAction, QIcon
-from PyQt6.QtCore import Qt
+from PyQt6.QtCore import Qt, QEvent
 from floating_window import FloatingWindow
 
 class SettingsWindow(QMainWindow):
@@ -19,7 +19,7 @@ class SettingsWindow(QMainWindow):
         self.music_on = False
 
         self.setWindowTitle("Mascot Settings")
-        self.setGeometry(500, 350, 400, 200)
+        self.setGeometry(500, 350, 400, 300)
 
         self.layout = QVBoxLayout()
 
@@ -28,7 +28,7 @@ class SettingsWindow(QMainWindow):
         self.load_button.clicked.connect(self.load_image)
         self.layout.addWidget(self.load_button)
 
-        # 3D model loader (will remove soon)
+        # 3D model loader
         self.load_3d_button = QPushButton("Load 3D Model (.glb/.obj)")
         self.load_3d_button.clicked.connect(self.load_3d)
         self.layout.addWidget(self.load_3d_button)
@@ -74,6 +74,11 @@ class SettingsWindow(QMainWindow):
         # Global shortcuts listener
         threading.Thread(target=self._listen_shortcuts, daemon=True).start()
 
+    def closeEvent(self, event):
+        # Intercept window close: hide to tray instead of exiting
+        event.ignore()
+        self.hide()
+
     def load_image(self):
         path, _ = QFileDialog.getOpenFileName(
             self, "Select GIF or Image", "", "Images (*.gif *.png *.jpg *.jpeg)"
@@ -81,7 +86,7 @@ class SettingsWindow(QMainWindow):
         if path:
             self._add_window("image", file_path=path)
 
-    def load_3d(self): # Not working (will fix ASAP)
+    def load_3d(self):
         path, _ = QFileDialog.getOpenFileName(
             self, "Select 3D Model", "", "3D Files (*.glb *.obj *.stl)"
         )
@@ -150,6 +155,8 @@ class SettingsWindow(QMainWindow):
 
     def quit_app(self):
         self.stop_all()
+        # Remove tray icon and exit
+        self.tray_icon.hide()
         QApplication.quit()
 
 if __name__ == "__main__":
