@@ -79,6 +79,7 @@ class SettingsWindow(QMainWindow):
         event.ignore()
         self.hide()
 
+    # Load image
     def load_image(self):
         path, _ = QFileDialog.getOpenFileName(
             self, "Select GIF or Image", "", "Images (*.gif *.png *.jpg *.jpeg)"
@@ -86,7 +87,7 @@ class SettingsWindow(QMainWindow):
         if path:
             self._add_window("image", file_path=path)
 
-    def load_3d(self):
+    def load_3d(self): # Will remove this 
         path, _ = QFileDialog.getOpenFileName(
             self, "Select 3D Model", "", "3D Files (*.glb *.obj *.stl)"
         )
@@ -129,7 +130,7 @@ class SettingsWindow(QMainWindow):
 
     def _listen_shortcuts(self):
         # Toggle all mascot windows
-        keyboard.add_hotkey('ctrl+alt+m', self._toggle_windows)
+        keyboard.add_hotkey('ctrl+alt+m', self._toggle_windows) # Can make any combination 
         # Toggle music pause/unpause
         keyboard.add_hotkey('ctrl+alt+s', self._toggle_music)
         keyboard.wait()
