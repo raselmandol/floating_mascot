@@ -19,7 +19,7 @@ class SettingsWindow(QMainWindow):
         self.music_on = False
 
         self.setWindowTitle("Mascot Settings")
-        self.setGeometry(500, 350, 400, 300)
+        self.setGeometry(500, 350, 400, 200)
 
         self.layout = QVBoxLayout()
 
